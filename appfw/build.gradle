@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
 
@@ -43,6 +45,9 @@ dependencies {
     implementation libraryDependencies.gson
     implementation libraryDependencies.guava
     compileOnly project(path: ':arch')
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.0.2'
 }
 
 task makeJar(type: Copy) {
@@ -55,3 +60,6 @@ task makeJar(type: Copy) {
 }
 //执行
 makeJar.dependsOn(build)
+repositories {
+    mavenCentral()
+}

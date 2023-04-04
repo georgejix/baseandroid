@@ -1,6 +1,8 @@
 import java.text.SimpleDateFormat
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -142,4 +144,7 @@ dependencies {
     implementation project(path: ':appfw') // 业务中心
     implementation project(path: ':rvhelper')   //adapter
     implementation project(path: ':pullrefreshview')    //下拉刷新
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.0.2'
 }
