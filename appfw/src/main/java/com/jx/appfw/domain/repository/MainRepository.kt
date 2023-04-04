@@ -4,6 +4,6 @@ import com.jx.appfw.domain.request.main.TestBean;
 
 import io.reactivex.Observable;
 
-public interface MainRepository {
-    Observable<String> test(TestBean testBean);
+interface MainRepository {
+    fun test(testBean: TestBean): Observable<String>
 }

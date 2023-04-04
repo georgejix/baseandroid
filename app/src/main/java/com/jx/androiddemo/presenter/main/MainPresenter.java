@@ -32,7 +32,7 @@ public class MainPresenter extends BaseRxPresenter<MainContract.View> implements
 
     public void test() {
         TestBean testBean = new TestBean();
-        testBean.str = "233";
+        testBean.setStr("233");
         mTestAction.execute(new DefaultObserver<String>() {
             @Override
             public void onNext(String str) {
