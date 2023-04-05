@@ -1,6 +1,6 @@
 package com.jx.appfw.data.net
 
-import com.jx.arch.net.ApiConnection
+import com.jx.appfw.net.ApiConnection
 import java.net.MalformedURLException
 
 open class BaseApiImpl {
@@ -13,8 +13,8 @@ open class BaseApiImpl {
      * @throws MalformedURLException
      */
     @Throws(MalformedURLException::class)
-    fun requestFromApi(url: String?, requestJson: String?): String? {
-        return ApiConnection.createPost(url, requestJson).requestPostSyncCall()
+    fun requestFromApi(url: String, requestJson: String): String? {
+        return ApiConnection.createPost(url, requestJson)
     }
 
     /**
@@ -25,7 +25,7 @@ open class BaseApiImpl {
      * @throws MalformedURLException
      */
     @Throws(MalformedURLException::class)
-    fun requestFromApi(url: String?): String? {
-        return ApiConnection.createGET(url).requestGetSyncCall()
+    fun requestFromApi(url: String): String? {
+        return ApiConnection.createGet(url)
     }
 }

@@ -8,15 +8,11 @@ import io.reactivex.Observable
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class MainDataRepository
-@Inject constructor(val mMainDataStoreFactory: MainDataStoreFactory) : MainRepository {
+class MainDataRepository(val mMainDataStoreFactory: MainDataStoreFactory) : MainRepository {
     private val mainNetDataStore: MainDataStore
-    private val mainDataStore: MainDataStore
     private val mainCacheDataStore: MainDataStore
 
     init {
-        mainDataStore = mMainDataStoreFactory.createMainDataStore()
         mainNetDataStore = mMainDataStoreFactory.createNetMainDataStore()
         mainCacheDataStore = mMainDataStoreFactory.createCacheMainDataStore()
     }

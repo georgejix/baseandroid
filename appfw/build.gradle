@@ -44,7 +44,8 @@ dependencies {
     implementation libraryDependencies.androidAnnotations
     implementation libraryDependencies.gson
     implementation libraryDependencies.guava
-    compileOnly project(path: ':arch')
+    implementation libraryDependencies.okhttp
+    implementation libraryDependencies.okhttpLogging
     //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.0.2'

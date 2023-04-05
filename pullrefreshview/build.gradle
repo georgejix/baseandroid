@@ -31,5 +31,4 @@ dependencies {
     implementation libraryDependencies.materialish
     implementation libraryDependencies.design
 
-    compileOnly project(':arch')
 }

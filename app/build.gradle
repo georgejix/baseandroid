@@ -79,7 +79,6 @@ android {
     }
 
     packagingOptions {
-        exclude "lib/armeabi/librealm-jni.so"
         exclude 'META-INF/DEPENDENCIES.txt'
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
@@ -112,10 +111,8 @@ dependencies {
     implementation presentationDependencies.androidxMaterial
 
     implementation presentationDependencies.androidxMultidex
-    implementation presentationDependencies.dagger
     implementation presentationDependencies.appcompat
     implementation presentationDependencies.constraintlayout
-    annotationProcessor presentationDependencies.daggerCompiler
     implementation presentationDependencies.rxJava
     implementation presentationDependencies.rxAndroid
     compileOnly presentationDependencies.javaxAnnotation
@@ -130,8 +127,6 @@ dependencies {
     implementation presentationDependencies.rxbindingRecyclerview
     implementation presentationDependencies.rxlifecycle
     implementation presentationDependencies.rxlifecycleComponents
-    implementation presentationDependencies.butterknife
-    annotationProcessor presentationDependencies.butterknifeCompiler
     implementation presentationDependencies.meFragmentation
     implementation presentationDependencies.glide
     annotationProcessor presentationDependencies.glideCompiler
@@ -140,7 +135,6 @@ dependencies {
 
     //Development
     implementation developmentDependencies.leakCanary
-    implementation project(path: ':arch') // 基础库
     implementation project(path: ':appfw') // 业务中心
     implementation project(path: ':rvhelper')   //adapter
     implementation project(path: ':pullrefreshview')    //下拉刷新
