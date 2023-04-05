@@ -12,7 +12,7 @@ import com.jx.appfw.domain.request.main.TestBean
 import org.greenrobot.eventbus.EventBus
 
 class MainPresenter(val mContext: Context) :
-    BaseRxPresenter(),
+    BaseRxPresenter<MainContract.View>(),
     MainContract.Presenter {
     private val mTestAction: TestAction? by lazy {
         BaseApplication.getActionManager()?.getTestAction()
@@ -26,7 +26,7 @@ class MainPresenter(val mContext: Context) :
         testBean.str = "test"
         mTestAction?.execute(object : DefaultObserver<String>() {
             override fun onNext(str: String) {
-                getMainView()?.showMsg(str)
+                mView?.get()?.showMsg(str)
             }
         }, testBean)
     }
@@ -35,11 +35,4 @@ class MainPresenter(val mContext: Context) :
         EventBus.getDefault().post(NoticeEvent(EventBusTag.TAG_TEST, arrayOf("test2")))
     }
 
-    private fun getMainView(): MainContract.View? {
-        if (mView?.get() is MainContract.View) {
-            return mView?.get() as MainContract.View
-        } else {
-            return null
-        }
-    }
 }
