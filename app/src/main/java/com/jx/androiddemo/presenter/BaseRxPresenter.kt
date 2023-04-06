@@ -4,13 +4,13 @@ import com.jx.androiddemo.BaseView
 import java.lang.ref.Reference
 import java.lang.ref.WeakReference
 
-abstract class BaseRxPresenter<T : BaseView> : BasePresenter<T> {
-    var mView: Reference<T>? = null
+abstract class BaseRxPresenter : BasePresenter {
+    var mView: Reference<BaseView>? = null
     abstract fun doDispose()
-    open fun getView(): T? = mView?.get()
+    open fun getView(): BaseView? = mView?.get()
     open fun isViewAttached(): Boolean = null != mView?.get()
 
-    override fun attachView(view: T) {
+    override fun attachView(view: BaseView) {
         mView = WeakReference(view)
     }
 

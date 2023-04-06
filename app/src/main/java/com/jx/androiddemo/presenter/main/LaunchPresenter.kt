@@ -5,7 +5,7 @@ import com.jx.androiddemo.contract.main.LaunchContract
 import com.jx.androiddemo.presenter.BaseRxPresenter
 
 class LaunchPresenter(val mContext: Context) :
-    BaseRxPresenter<LaunchContract.View>(),
+    BaseRxPresenter(),
     LaunchContract.Presenter {
     override fun doDispose() {
     }

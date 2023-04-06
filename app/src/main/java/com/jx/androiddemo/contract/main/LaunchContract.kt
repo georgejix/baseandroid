@@ -6,5 +6,5 @@ import com.jx.androiddemo.presenter.BasePresenter
 class LaunchContract {
     interface View : BaseView
 
-    interface Presenter : BasePresenter<View>
+    interface Presenter : BasePresenter
 }
