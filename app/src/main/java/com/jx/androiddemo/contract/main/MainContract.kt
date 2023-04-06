@@ -8,7 +8,7 @@ class MainContract {
         fun showMsg(str: String)
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BasePresenter<View> {
         fun test()
         fun test2()
     }

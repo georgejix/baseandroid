@@ -3,7 +3,7 @@ package com.jx.androiddemo.activity.main
 import android.annotation.SuppressLint
 import com.jx.androiddemo.BaseMvpActivity
 import com.jx.androiddemo.R
-import com.jx.androiddemo.constant.Navigator.navigateToMainActivity
+import com.jx.androiddemo.constant.Navigator
 import com.jx.androiddemo.contract.main.LaunchContract
 import com.jx.androiddemo.presenter.main.LaunchPresenter
 import io.reactivex.Observable
@@ -20,9 +20,8 @@ class LaunchActivity : BaseMvpActivity<LaunchPresenter>(), LaunchContract.View {
         Observable.timer(1000, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { integer: Long? ->
-                navigateToMainActivity(
-                    this
-                )
+                Navigator.navigateToMainActivity(this)
+                finish()
             }
     }
 

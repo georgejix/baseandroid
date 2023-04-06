@@ -7,14 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.jx.androiddemo.event.NoticeEvent
-import com.jx.androiddemo.presenter.BasePresenter
 import com.jx.androiddemo.presenter.BaseRxPresenter
 import me.yokeyword.fragmentation.SupportFragment
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
-abstract class BaseMvpFragment<T : BasePresenter> : SupportFragment(), BaseView {
+abstract class BaseMvpFragment<T : BaseRxPresenter<BaseView>> : SupportFragment(), BaseView {
     private var mPresenter: T? = null
     protected var mView: View? = null
 
@@ -53,9 +52,7 @@ abstract class BaseMvpFragment<T : BasePresenter> : SupportFragment(), BaseView 
     override fun onDestroy() {
         EventBus.getDefault().unregister(this)
         mPresenter?.detachView()
-        if (mPresenter is BaseRxPresenter) {
-            (mPresenter as BaseRxPresenter).doDispose()
-        }
+        mPresenter?.doDispose()
         super.onDestroy()
     }
 
