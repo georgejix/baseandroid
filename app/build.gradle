@@ -132,6 +132,8 @@ dependencies {
     annotationProcessor presentationDependencies.glideCompiler
     implementation libraryDependencies.gson
     implementation libraryDependencies.guava
+    //导航栏库
+    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.1'
 
     //Development
     implementation developmentDependencies.leakCanary

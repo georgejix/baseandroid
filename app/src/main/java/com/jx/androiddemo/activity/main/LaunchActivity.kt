@@ -10,6 +10,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import java.util.concurrent.TimeUnit
 
+
 class LaunchActivity : BaseMvpActivity<LaunchPresenter>(), LaunchContract.View {
     override fun getLayout(): Int {
         return R.layout.activity_launch
