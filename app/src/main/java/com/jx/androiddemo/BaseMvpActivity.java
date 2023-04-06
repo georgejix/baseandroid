@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 import com.jx.androiddemo.event.NoticeEvent;
 import com.jx.androiddemo.presenter.BaseRxPresenter;
+import com.jx.appfw.util.DeviceUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -17,6 +18,7 @@ import me.yokeyword.fragmentation.SupportActivity;
 public abstract class BaseMvpActivity<T extends BaseRxPresenter> extends SupportActivity implements BaseView {
     public T mPresenter;
     public Activity mContext;
+    public int mToolBarHeight = 0;
 
     public abstract void initPresenter();
 
@@ -30,6 +32,7 @@ public abstract class BaseMvpActivity<T extends BaseRxPresenter> extends Support
         initPresenter();
         EventBus.getDefault().register(this);
         setContentView(getLayout());
+        mToolBarHeight = DeviceUtil.INSTANCE.getToolBarHeight(this);
         //设置状态栏颜色
         //setStatusBarColor(getResources().getColor(R.color.head_view_bg));
         mContext = this;
@@ -40,6 +43,7 @@ public abstract class BaseMvpActivity<T extends BaseRxPresenter> extends Support
         if (null != BaseApplication.Companion.getMPageManager()) {
             BaseApplication.Companion.getMPageManager().addActivity(this);
         }
+        DeviceUtil.INSTANCE.fullScreen(this);
     }
 
 

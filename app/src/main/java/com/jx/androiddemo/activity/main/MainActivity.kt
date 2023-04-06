@@ -3,6 +3,7 @@ package com.jx.androiddemo.activity.main
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.KeyEvent
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.jakewharton.rxbinding2.view.RxView
 import com.jx.androiddemo.BaseMvpActivity
 import com.jx.androiddemo.R
@@ -37,11 +38,15 @@ class MainActivity : BaseMvpActivity<MainPresenter>(), MainContract.View {
         RxView.clicks(tv_test2)
             .throttleFirst(Constants.CLICK_TIME.toLong(), TimeUnit.MILLISECONDS)
             .subscribe { o: Any? -> mPresenter?.test2() }
+        if (tv_test.layoutParams is ConstraintLayout.LayoutParams) {
+            val param = tv_test.layoutParams as ConstraintLayout.LayoutParams
+            param.topMargin = mToolBarHeight
+            tv_test.layoutParams = param
+        }
     }
 
     override fun showMsg(str: String) {
         ToastUtil.showToast(mContext, str)
-
     }
 
     override fun onEventMainThread(event: NoticeEvent?) {

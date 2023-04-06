@@ -49,6 +49,8 @@ dependencies {
     //kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.0.2'
+    //使用WindowInsetsControllerCompat
+    implementation 'androidx.core:core:1.5.0-alpha05'
 }
 
 task makeJar(type: Copy) {
