@@ -27,9 +27,9 @@ object DeviceUtil {
     }
 
     /**
-     * 全屏
+     * 状态栏背景透明
      */
-    fun fullScreen(mActivity: Activity) {
+    fun setStatusBarTheme(mActivity: Activity, dark: Boolean) {
         //刘海屏抢夺状态栏控制权
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             mActivity.window.attributes.layoutInDisplayCutoutMode =

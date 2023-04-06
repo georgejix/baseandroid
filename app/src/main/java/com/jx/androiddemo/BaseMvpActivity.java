@@ -43,7 +43,7 @@ public abstract class BaseMvpActivity<T extends BaseRxPresenter> extends Support
         if (null != BaseApplication.Companion.getMPageManager()) {
             BaseApplication.Companion.getMPageManager().addActivity(this);
         }
-        DeviceUtil.INSTANCE.fullScreen(this);
+        DeviceUtil.INSTANCE.setStatusBarTheme(this, true);
     }
 
 
