@@ -44,6 +44,10 @@ public abstract class BaseMvpActivity<T extends BaseRxPresenter> extends Support
         if (null != BaseApplication.Companion.getMPageManager()) {
             BaseApplication.Companion.getMPageManager().addActivity(this);
         }
+        setStatusBar();
+    }
+
+    private void setStatusBar(){
         ImmersionBar.with(this)
                 .transparentStatusBar() //透明状态栏，不写默认透明色
                 .transparentNavigationBar()//透明导航栏，不写默认黑色(设置此方法，fullScreen()方法自动为true)
@@ -95,7 +99,6 @@ public abstract class BaseMvpActivity<T extends BaseRxPresenter> extends Support
             .reset() //重置所以沉浸式参数
             .init() //必须调用方可应用以上所配置的参数*/
     }
-
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventMainThread(NoticeEvent event) {
